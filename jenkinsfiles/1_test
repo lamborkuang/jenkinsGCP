@@ -1,0 +1,32 @@
+Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent any 
+    stages {
+        stage('Stage 1') {
+            steps {
+                echo 'Hello world!' 
+            }
+            steps {
+                echo 'My name is lambor!' 
+            }
+        }
+
+        stage('Stage 1') {
+            timeout(time:"5", unit:'MINUTES'){
+                steps {
+                    log = sh(returnStdout:true, script: "gcloud compute instances create premium-cipher-294214-test \
+                                                            --project premium-cipher-294214 \
+                                                            --zone us-west4-a \
+                                                            --no-address \
+                                                            --service-account jenkins@premium-cipher-294214.iam.gserviceaccount.com \
+                                                            --scopes cloud-platform \
+                                                            --metadata GIT_BRANCH=empty, BUILD_ID=premium-cipher-294214-test, TF_LOCATION=test, TF_VARS=env_vars/dev.tfvars, TF_ACTION=apply, TF_MODULE=gce, GCP_PROJECT_ID=premium-cipher-294214, GCP_REGION=us-west4 \
+                                                            --boot-disk-kms-key projects/premium-cipher-294214/locations/us-west4keyRings/computeEngine/cryptoKeys/HSMcomputeEngine \
+                                                            --boot-disk-kms-project premium-cipher-294214-test
+                    )
+                }
+            }
+            
+        }
+    }
+}
