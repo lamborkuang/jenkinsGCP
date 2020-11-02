@@ -57,5 +57,9 @@ node ("$env.NODE") {
         stage('tidy-up') {
             echo 'pipeline finish'
         }
+
+        stege('post-stats') {
+            deleteDir()
+        }
     }
 }
