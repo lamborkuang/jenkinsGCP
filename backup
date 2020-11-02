@@ -41,7 +41,7 @@ node ("$env.NODE") {
                                                             --no-address \
                                                             --service-account jenkins@premium-cipher-294214.iam.gserviceaccount.com \
                                                             --scopes cloud-platform \
-                                                            --metadata GIT_BRANCH=empty, BUILD_ID=premium-cipher-294214-test, GCP_PROJECT_ID=premium-cipher-294214, GCP_REGION=us-west4 \
+                                                            --metadata GIT_BRANCH=empty, BUILD_ID=premium-cipher-294214-test, TF_LOCATION=test, TF_VARS=env_vars/dev.tfvars, TF_ACTION=apply, TF_MODULE=gce, GCP_PROJECT_ID=premium-cipher-294214, GCP_REGION=us-west4 \
                                                             --boot-disk-kms-key projects/premium-cipher-294214/locations/us-west4keyRings/computeEngine/cryptoKeys/HSMcomputeEngine \
                                                             --boot-disk-kms-project premium-cipher-294214-test")
                 }
