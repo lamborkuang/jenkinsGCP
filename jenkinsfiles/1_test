@@ -31,7 +31,7 @@ node ("$env.NODE")
             }
         }
 
-        stage('Stage 1') {
+        stage('Stage 2') {
             timeout(time:"5", unit:'MINUTES'){
                 callback = registerWebhook()
                 steps {
