@@ -50,5 +50,12 @@ node ("$env.NODE") {
             }
             
         }
+    } catch (Exception e){
+        echo e
+        currentBuild.result = 'FAILURE'
+    } finally {
+        stage('tidy-up') {
+            echo 'pipeline finish'
+        }
     }
 }
