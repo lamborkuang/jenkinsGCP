@@ -19,6 +19,8 @@ properties(
 
 node ("$env.NODE") {
     try {
+        env.PATH = 'C/Users/Administrator/AppData/Local/Programs/Python/Python38/Scripts/:C/Users/Administrator/AppData/Local/Programs/Python/Python38/'
+        env.GIT_HTTP_PROXY_AUTHMETHOD = 'basic'
 
         stage('Stage 1') {
             steps {
