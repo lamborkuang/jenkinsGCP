@@ -1,8 +1,7 @@
 
 properties(
     [
-        [$class:'RebuildSettings'], autoRebuild:false, rebuildDisables:false
-    ],
+        [$class:'RebuildSettings'], autoRebuild:false, rebuildDisables:false],
     buildDiscarder(logRotator(artifactDaysTokeepStr:'', artifactNumTokeepStr:'', daysToKeepStr:'7', numToKeepStr:'10')),
     parameters(
         [
