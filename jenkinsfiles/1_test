@@ -1,12 +1,11 @@
 
 properties(
     [
-        [$class:'RebuildSettings'], autoRebuild:false, rebuildDisables:false],
+        [$class:'RebuildSettings', autoRebuild:false, rebuildDisables:false],
     buildDiscarder(logRotator(artifactDaysTokeepStr:'', artifactNumTokeepStr:'', daysToKeepStr:'7', numToKeepStr:'10')),
     parameters(
         [
-            $class:'NodeParameterDefinition', allowedSlaves: [], defaultSlaves: ['TOOLING_LINUX_GBL20039993'], description:'Jenkins slave node', name:'NODE', nodeEligibility: [$class:'AllNodeEligibity'], triggerIfResult:'multiSelectionDisallowed'        
-        ],
+            [$class:'NodeParameterDefinition', allowedSlaves: [], defaultSlaves: ['TOOLING_LINUX_GBL20039993'], description:'Jenkins slave node', name:'NODE', nodeEligibility: [$class:'AllNodeEligibity'], triggerIfResult:'multiSelectionDisallowed'],
         credentials(credentialType:'com.cloudbees.plugins.credentials.impl.FileCredentialsImpl', defaultValue:168378201529-compute-premium-cipher-294214, description:'contails account key for pipeline initiation with GCP', name:"GCP_SA_KEY", required: true),
         string(defaultValue: '5', description:'maximum time', name:'GCP_PIPELINE_WAIT_MINS', trim:true, required:true),
         string(defaultValue: 'apply', description:'plan, apply, destroy -force, plan -destroy', name:'TF_LOCATION', trim:true, required:true),
@@ -14,8 +13,8 @@ properties(
         //string(defaultValue: 'gce', description:'modules for tf', name:'TF_MODULE', trim:true, required:true),
         //string(defaultValue: 'env_vars/dev.tfvars', description:'local file system', name:'TF_VARS', trim:true, required:true),
         string(defaultValue: 'debug', description:'pipeline mode', name:'GCP_PIPELINE_MODE', trim:true, required:true)
-    )
-)
+        ])
+])
 
 
 node ("$env.NODE")
